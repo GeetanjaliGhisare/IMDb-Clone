@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar .btn,
+.navbar .nav-link,
+.navbar .dropdown-toggle,
+.navbar .input-group-text {
+    color: white;
+}
+
+.navbar{
+    background-color: rgb(27, 27, 27);
+}
+
+.nav-container {
+    margin: 0px 30px;
+}
+
+.equal-size {
+    padding: 3px 10px;
+    height: 32px;
+
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+
+.equal-size-search{
+    height: 32px;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
+
+.search-icn{
+    height: 32px;
+}
+
+.search-box{
+    width: 640px;
+}
+
+.nav-item{
+    padding: 0 7px;
+}
+
+.nav-item a,
+.nav-item button{
+    font-weight: 600;
+    font-size: 14px
+}
+
+.nav-dropdown1 .dropdown-item{
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+.nav-line{
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    background-color: grey;
+    top: 15px;
+}
+
+.nav-item:hover{
+    background-color: rgb(43, 41, 41);
+    border-radius: 20px;
+}
+
+.no-hover-nav:hover{
+    background-color: rgb(17, 16, 16);
+    border-radius: 0;
+}
+
+.nav-dropdown1 .dropdown-item{
+    font-size: 14px;
+}
+
+.search-results {
+    position: absolute;
+    top: 50px;
+    left: 230px;
+    width:50%;
+    border: 1px solid #ccc;
+    padding: 20px 30px;
+    max-height: 100px;
+    overflow-y: auto;
+    display: none;
+    background-color: black;
+    color: #fff;
+
+}
+
+.movie-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
