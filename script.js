@@ -40,7 +40,40 @@ document.addEventListener("DOMContentLoaded", function () {
             <h5>${movie.Title} (${movie.Year})</h5>`;
 
             resultsContainer.appendChild(movieCard);
+
+            movieCard.querySelector("img").addEventListener("click", async (event) => {
+                const imdbID = event.target.getAttribute("data-imdbid");
+                await fetchMovieDetails(imdbID);
+            })
         });
+    }
+
+    async function fetchMovieDetails(imdbID){
+        const url = `https://www.omdbapi.com/?i=${imdbID}&apikey=${API_KEY}`;
+     
+        try{
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if(data.Response === "True"){
+                document.getElementById("movieTitle").innerText = data.Title;
+                document.getElementById("moviePoster").src = data.Poster;
+                document.getElementById("movieYear").innerText = data.Year;
+                document.getElementById("movieRating").innerText = data.imdbRating;
+                document.getElementById("movieReleased").innerText = data.Released;
+                document.getElementById("movieWriter").innerText = data.Writer;
+                document.getElementById("movieActors").innerText = data.Actors;
+                document.getElementById("moviePlot").innerText = data.Plot;
+
+                movieDetailsSection.classList.remove("d-none");
+                resultsContainer.classList.add("d-none");
+            }else{
+                console.error("Movie details not found");   
+            }
+        }
+        catch(error){
+            console.error("Error fetching movie details:", error);
+        }
     }
 
     searchButton.addEventListener("click", () => {
