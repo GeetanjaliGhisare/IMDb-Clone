@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             movieCard.querySelector("img").addEventListener("click", async (event) => {
                 const imdbID = event.target.getAttribute("data-imdbid");
+                history.pushState({page: "movieDetails", imdbID: imdbID}, "", `?movie=${imdbID}`);
                 await fetchMovieDetails(imdbID);
             })
         });
@@ -76,6 +77,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+     window.addEventListener("popstate", (event)=>{
+        if(event.state && event.state.page === "movieDetails"){
+            fetchMovieDetails(event.state.imdbID);
+        }else{
+            movieDetailsSection.classList.add("d-none");
+            resultsContainer.classList.remove("d-none")
+        }
+    })
+
     searchButton.addEventListener("click", () => {
         const query = searchInput.value.trim();
         if (query) fetchMovies(query)
@@ -93,5 +103,10 @@ document.addEventListener("DOMContentLoaded", function () {
             resultsContainer.style.display = "none";
         }
     })
+ const urlParams = new URLSearchParams(window.location.search);
+    const movieID = urlParams.get("movie");
+    if (movieID) {
+        fetchMovieDetails(movieID);
+    }
 
 })
