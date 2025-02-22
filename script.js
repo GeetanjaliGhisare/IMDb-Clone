@@ -134,9 +134,23 @@ document.addEventListener("DOMContentLoaded", function () {
     if (movieID) {
         fetchMovieDetails(movieID);
     }
-    
+
     if (!history.state) {
         history.replaceState({ page: "home" }, "", window.location.pathname);
     }
     
+
+    let modal = document.getElementById("trailerModal");
+        let frame = document.getElementById("trailerFrame");
+
+        document.querySelectorAll(".carousel-item img").forEach(img => {
+            img.addEventListener("click", function() {
+                let videoSrc = this.getAttribute("data-video");
+                frame.src = videoSrc;
+            });
+        });
+
+        modal.addEventListener("hidden.bs.modal", function() {
+            frame.src = ""; // Stop video when modal is closed
+        });
 });
