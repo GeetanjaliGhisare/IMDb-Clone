@@ -88,12 +88,22 @@
     width:50%;
     border: 1px solid #ccc;
     padding: 20px 30px;
-    max-height: 100px;
+    max-height: 500px;
     overflow-y: auto;
     display: none;
     background-color: black;
     color: #fff;
+    height: auto;
+}
 
+.movie-sect {
+    position: absolute; /* or fixed if needed */
+    top: 50px; /* Adjust based on your layout */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-height: 550px;
+    overflow: auto;
 }
 
 .movie-card {
